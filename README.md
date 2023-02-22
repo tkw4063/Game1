@@ -1,5 +1,7 @@
 # Game1
 
+Insert Python version, Pygame version, and OS.
+
 Game Loop:
 * Updates position of character
 * Updates score
