@@ -1,6 +1,6 @@
 # Game1
 
-Insert Python version, Pygame version, and OS.
+Insert Python version, Pygame version, and OS and image.
 
 Game Loop:
 * Updates position of character
