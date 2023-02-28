@@ -1,11 +1,12 @@
 import pygame, sys, os, random
 import sprite
 import dino
-
-n = 600
+from blocksgroup import blocks
+from Buttons import button
+from textobj import text_objects
 
 # Size of our window
-SCREEN_SIZE = SCREEN_WIDTH, SCREEN_HEIGHT = n, n
+SCREEN_SIZE = SCREEN_WIDTH, SCREEN_HEIGHT = 600, 600
 imagesize = (30,30)
 
 # Import locals for key binding
@@ -28,105 +29,78 @@ pygame.font.init()
 font = pygame.font.SysFont("Comic Sans MS", 20)
 
 # Screen color and character
-screenColor = (200,200,200)
 #srectSize = rectWidth,rectHeight = 10,10
+screenColor = (255,255,255)
 rectPos = rectX, rectY = 100,100
 rectSpeed = 1
 white = (255,255,255)
-
-def blocks(rectangle,group):
-    rectangle.rect.x = random.randrange(n-10)
-    rectangle.rect.y = random.randrange(30,n-10)
-    group.add(rectangle)
-
-
-dinog = dino.Dino(imagesize)
-
-
-def text_objects(text, font):
-    textSurface = font.render(text, True, (0,0,0))
-    return textSurface, textSurface.get_rect()
-
-def button(msg,x,y,w,h,ic,ac,action=None):
-    mouse = pygame.mouse.get_pos()
-    click = pygame.mouse.get_pressed()
-
-    # Changing the color when mouse hovers over it
-    if x+w > mouse[0] > x and y+h > mouse[1] >y:
-        pygame.draw.rect(surface,ac,(x,y,w,h))
-        if click[0] == 1 and action !=None:
-            action()
-    else:
-        pygame.draw.rect(surface,ic,(x,y,w,h))
-
-    textSurf,textRect = text_objects(msg,font)
-    textRect.center = ((x+(w/2)),(y+(h/2)))
-    surface.blit(textSurf,textRect)
 
 def quitgame():
     pygame.quit()
     sys.exit()
 
+
 # Game Intro
 def introScreen():
-    intro = True
-    while intro:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+  pygame.font.init()
+  font = pygame.font.SysFont("Comic Sans MS", 20)
+  intro = True
+  while intro:
+      for event in pygame.event.get():
+          if event.type == pygame.QUIT:
+              pygame.quit()
+              sys.exit()
 
-        surface.fill((255,255,255))
-        TextSurf,TextRect = text_objects("Hungry Dinosaur",font)
-        TextRect.center = ((300),(100))
-        surface.blit(TextSurf,TextRect)
+      surface.fill((255,255,255))
+      TextSurf,TextRect = text_objects("Hungry Dinosaur",font)
+      TextRect.center = ((300),(100))
+      surface.blit(TextSurf,TextRect)
 
-        TextSurf,TextRect = text_objects("Feed your dinosaur all the food before time runs out.",font)
-        TextRect.center = ((300),(200))
-        surface.blit(TextSurf,TextRect)
+      TextSurf,TextRect = text_objects("Feed your dinosaur all the food before time runs out.",font)
+      TextRect.center = ((300),(200))
+      surface.blit(TextSurf,TextRect)
 
-        TextSurf,TextRect = text_objects("Use the arrow keys to move the dinosaur to the food.",font)
-        TextRect.center = ((300),(250))
-        surface.blit(TextSurf,TextRect)
+      TextSurf,TextRect = text_objects("Use the arrow keys to move the dinosaur to the food.",font)
+      TextRect.center = ((300),(250))
+      surface.blit(TextSurf,TextRect)
 
-        button("Play",200,300,200,50,(61,202,94),(40,242,87),game_loop)
-        button("Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
+      button(surface,"Play",200,300,200,50,(61,202,94),(40,242,87),game_loop)
+      button(surface,"Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
 
-        pygame.display.flip()
+      pygame.display.flip()
 
-
-
-#End screen
 def winScreen():
     TextSurf, TextRect = text_objects("Your dinosaur is full and happy!",font)
     TextRect.center = ((300,200))
     surface.blit(TextSurf,TextRect)
-    button("Play Again",200,300,200,50,(61,202,94),(40,242,87),game_loop)
-    button("Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
-
+    button(surface,"Play Again",200,300,200,50,(61,202,94),(40,242,87),game_loop)
+    button(surface,"Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
 
 def loseScreen():
     TextSurf, TextRect = text_objects("You didn't feed the dinosaur in time so it ate you!",font)
     TextRect.center = ((300,200))
     surface.blit(TextSurf,TextRect)
-    button("Play Again",200,300,200,50,(61,202,94),(40,242,87),game_loop)
-    button("Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
-
+    button(surface,"Play Again",200,300,200,50,(61,202,94),(40,242,87),game_loop)
+    button(surface,"Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
 
 # Game loop
 def game_loop():
+    pygame.font.init()
+    font = pygame.font.SysFont("Comic Sans MS", 20)
     rectColor = (255,0,0)
+    dinog = dino.Dino(imagesize)
+
     food = pygame.sprite.Group()
-    food1 = sprite.Sprite(rectColor)
-    food2 = sprite.Sprite(rectColor)
-    food3 = sprite.Sprite(rectColor)
-    food4 = sprite.Sprite(rectColor)
-    food5 = sprite.Sprite(rectColor)
-    food6 = sprite.Sprite(rectColor)
-    food7 = sprite.Sprite(rectColor)
-    food8 = sprite.Sprite(rectColor)
-    food9 = sprite.Sprite(rectColor)
-    food10 = sprite.Sprite(rectColor)
+    food1 = sprite.People(imagesize)
+    food2 = sprite.People(imagesize)
+    food3 = sprite.People(imagesize)
+    food4 = sprite.People(imagesize)
+    food5 = sprite.People(imagesize)
+    food6 = sprite.People(imagesize)
+    food7 = sprite.People(imagesize)
+    food8 = sprite.People(imagesize)
+    food9 = sprite.People(imagesize)
+    food10 = sprite.People(imagesize)
 
     blocks(food1,food)
     blocks(food2,food)
@@ -186,9 +160,5 @@ def game_loop():
         pygame.display.flip()
 
 
-    #return end
-
 introScreen()
 game_loop()
-#end = game_loop()
-#endScreen(end)
