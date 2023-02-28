@@ -6,8 +6,8 @@ from Buttons import button
 from textobj import text_objects
 
 # Size of our window
-SCREEN_SIZE = SCREEN_WIDTH, SCREEN_HEIGHT = 600, 600
-imagesize = (30,30)
+SCREEN_SIZE = SCREEN_WIDTH, SCREEN_HEIGHT = 1000, 600
+imagesize = (40,40)
 
 # Import locals for key binding
 from pygame.locals import (
@@ -24,6 +24,8 @@ from pygame.locals import (
 pygame.init()
 pygame.display.set_caption("Hungry Dinosaur")
 surface = pygame.display.set_mode(SCREEN_SIZE)
+
+bg = pygame.image.load("C:/Users/tkw40/Documents/Clemson/Student/CPCS_6160/Game1/sand1.jpg")
 
 pygame.font.init()
 font = pygame.font.SysFont("Comic Sans MS", 20)
@@ -53,35 +55,35 @@ def introScreen():
 
       surface.fill((255,255,255))
       TextSurf,TextRect = text_objects("Hungry Dinosaur",font)
-      TextRect.center = ((300),(100))
+      TextRect.center = ((500),(100))
       surface.blit(TextSurf,TextRect)
 
       TextSurf,TextRect = text_objects("Feed your dinosaur all the food before time runs out.",font)
-      TextRect.center = ((300),(200))
+      TextRect.center = ((500),(200))
       surface.blit(TextSurf,TextRect)
 
       TextSurf,TextRect = text_objects("Use the arrow keys to move the dinosaur to the food.",font)
-      TextRect.center = ((300),(250))
+      TextRect.center = ((500),(250))
       surface.blit(TextSurf,TextRect)
 
-      button(surface,"Play",200,300,200,50,(61,202,94),(40,242,87),game_loop)
-      button(surface,"Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
+      button(surface,"Play",400,300,200,50,(61,202,94),(40,242,87),game_loop)
+      button(surface,"Exit",400,400,200,50,(61,202,94),(40,242,87),quitgame)
 
       pygame.display.flip()
 
 def winScreen():
     TextSurf, TextRect = text_objects("Your dinosaur is full and happy!",font)
-    TextRect.center = ((300,200))
+    TextRect.center = ((500,200))
     surface.blit(TextSurf,TextRect)
-    button(surface,"Play Again",200,300,200,50,(61,202,94),(40,242,87),game_loop)
-    button(surface,"Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
+    button(surface,"Play Again",400,300,200,50,(61,202,94),(40,242,87),game_loop)
+    button(surface,"Exit",400,400,200,50,(61,202,94),(40,242,87),quitgame)
 
 def loseScreen():
     TextSurf, TextRect = text_objects("You didn't feed the dinosaur in time so it ate you!",font)
-    TextRect.center = ((300,200))
+    TextRect.center = ((500,200))
     surface.blit(TextSurf,TextRect)
-    button(surface,"Play Again",200,300,200,50,(61,202,94),(40,242,87),game_loop)
-    button(surface,"Exit",200,400,200,50,(61,202,94),(40,242,87),quitgame)
+    button(surface,"Play Again",400,300,200,50,(61,202,94),(40,242,87),game_loop)
+    button(surface,"Exit",400,400,200,50,(61,202,94),(40,242,87),quitgame)
 
 # Game loop
 def game_loop():
@@ -140,8 +142,8 @@ def game_loop():
         dinog.movement(pressed_keys)
         dinosaur.add(dinog)
 
-        surface.fill(screenColor)
-        surface.blit(Timer, (570,0))
+        surface.blit(bg,(0,0))
+        surface.blit(Timer, (970,0))
         food.draw(surface)
         dinosaur.draw(surface)
 

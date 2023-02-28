@@ -32,8 +32,8 @@ class Dino(pygame.sprite.Sprite):
         # Keep player on the screen
         if self.rect.left < 0:
             self.rect.left = 0
-        if self.rect.right > 600:
-            self.rect.right = 600
+        if self.rect.right > 1000:
+            self.rect.right = 1000
         if self.rect.top <= 30:
             self.rect.top = 30
         if self.rect.bottom >= 600:
