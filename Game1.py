@@ -72,16 +72,12 @@ def introScreen():
       pygame.display.flip()
 
 def winScreen():
-    TextSurf, TextRect = text_objects("Your dinosaur is full and happy!",font)
-    TextRect.center = ((500,200))
-    surface.blit(TextSurf,TextRect)
+    button(surface,"Your dinosaur is full and happy!",360,200,300,50,(40,242,87),(40,242,87))
     button(surface,"Play Again",400,300,200,50,(61,202,94),(40,242,87),game_loop)
     button(surface,"Exit",400,400,200,50,(61,202,94),(40,242,87),quitgame)
 
 def loseScreen():
-    TextSurf, TextRect = text_objects("You didn't feed the dinosaur in time so it ate you!",font)
-    TextRect.center = ((500,200))
-    surface.blit(TextSurf,TextRect)
+    button(surface,"You didn't feed the dinosaur in time so it ate you!",360,200,300,50,(40,242,87),(40,242,87))
     button(surface,"Play Again",400,300,200,50,(61,202,94),(40,242,87),game_loop)
     button(surface,"Exit",400,400,200,50,(61,202,94),(40,242,87),quitgame)
 
@@ -118,7 +114,7 @@ def game_loop():
     timer_int = 500
     timer_event = pygame.USEREVENT +1
     pygame.time.set_timer(timer_event,timer_int)
-    Timer = font.render(str(counter),True, (0,0,0))
+    Timer = font.render(str(counter),True, (4,255,63))
     score = 0
 
     end = True
@@ -130,7 +126,7 @@ def game_loop():
                 sys.exit()
             elif event.type == timer_event:
                 counter -=1
-                Timer = font.render(str(counter), True, (0,0,0))
+                Timer = font.render(str(counter), True, (4,255,63))
                 if counter == 0:
                     pygame.time.set_timer(timer_event,0)
 
@@ -150,7 +146,7 @@ def game_loop():
         if pygame.sprite.groupcollide(dinosaur,food,False,True):
             score+=1
 
-        ScoreBoard = font.render("SCORE: {}".format(score),True, (0,0,0))
+        ScoreBoard = font.render("SCORE: {}".format(score),True, (4,255,63))
         surface.blit(ScoreBoard,[0,0])
 
         if counter == 0:
