@@ -9,7 +9,8 @@ Motication: I knew I wanted to build a game where you collect some sort of objec
 
 Reasoning: I originally wanted to structure it so that each of my components was separate that way it was reusable. I managed to do this with the exception of the Win/Lose screen functions and my game loop. Because of the way I set up my "Play", "Play Again", and "Exit" buttons I could not separate the functions for the win/lose screens from the game loop without getting an error from a cyclical import. 
 
-(Image)
+![diagram](https://user-images.githubusercontent.com/33873660/222286894-775c04a6-2b85-4a40-b7ab-845eb68c7e16.jpg)
+
 
 Future Work: 
 
