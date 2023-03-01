@@ -15,9 +15,10 @@ Future Work:
 
 Game Components:
 * Game Loop:
-* * Updates position of character
-* * Updates score
-*  
+  * Updates position of character
+  * Updates score
+  
+ 
 
 Model:
 * Character: position, collison
