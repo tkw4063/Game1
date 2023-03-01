@@ -15,24 +15,27 @@ Future Work:
 
 Game Components:
 * Game Loop:
-  * Updates position of character
-  * Updates score
+  * Dinosaur
+  * Creates 10 food objects - calls the People class
+  * Adds the food to a group and randomly places it on the screen - uses the blocks function
+  * sets initial counter
+  * 
   
  
 
-Model:
-* Character: position, collison
+* Model:
+ * Character: position, collison
 
 
-View:
-* Gameboard
-* Score
-* Timer
-* Win/lose alert
+* View:
+ * Gameboard
+ * Score
+ * Timer
+ * Win/lose alert
 
-Controller:
-* Movement of character (arrows)
-
-Entities:
-* Main character (circle to move around and collect points)
-* Point blocks 
+* Controller:
+ * Movement of dinosaur (arrows)
+ 
+* Entities:
+ * Dinosaur - playable character
+ * Food - these are the collectables in the form of humans
