@@ -5,38 +5,12 @@ Program Versions:
 * Python v. 3.11.1
 * Pygame 2.1.3.dev8
 
-Motication: I knew I wanted to build a game where you collect some sort of objects for points. And I think dinosaurs are cute and thought it would be funny to have a game where you have to feed them people. 
+Motivation: I knew I wanted to build a game where you collect some sort of objects for points. And I think dinosaurs are cute and thought it would be funny to have a game where you have to feed them people. 
 
-Reasoning: I originally wanted to structure it so that each of my components was separate that way it was reusable. I managed to do this with the exception of the Win/Lose screen functions and my game loop. Because of the way I set up my "Play", "Play Again", and "Exit" buttons I could not separate the functions for the win/lose screens from the game loop without getting an error from a cyclical import. 
+Reasoning: For view, I have the main screen that is in the game loop. I also have the introScreen, winScreen, and loseScreen functions. For controller, in the dino class, it takes in the keypad presses to then move the dinosaur. In the buttons function, it takes in the mouse presses and if the press is over the space where the button is located it response appropriately. For model, I have the food group, the dinosaur group, score, these are all in the game loop; and in this it is also checking to see if there is a collision between the dinosaur group and the food group in order to update the screen and remove food as appropriate; with the score keeping track of how many food has been eaten. Each of my model pieces are loose in the game loop, I originally wrote this as all one file and had to seperate it out in doing that I ran out of time - ideally I wcould construct a class to contain them. I also would have ideally been able to seperate my win screen and lose screen out from my file with my game loop but when I tried to give each their own file I kept getting an error because it was a cyclical import  due oto how I liked the buttons to the ap
 
 ![diagram](https://user-images.githubusercontent.com/33873660/222286894-775c04a6-2b85-4a40-b7ab-845eb68c7e16.jpg)
 
 
 Future Work: 
 
-Game Components:
-* Game Loop:
-  * Dinosaur
-  * Creates 10 food objects - calls the People class
-  * Adds the food to a group and randomly places it on the screen - uses the blocks function
-  * sets initial counter
-  * 
-  
- 
-
-* Model:
- * Character: position, collison
-
-
-* View:
- * Gameboard
- * Score
- * Timer
- * Win/lose alert
-
-* Controller:
- * Movement of dinosaur (arrows)
- 
-* Entities:
- * Dinosaur - playable character
- * Food - these are the collectables in the form of humans
