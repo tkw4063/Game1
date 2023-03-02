@@ -1,9 +1,15 @@
 # Game1
+![Screenshot (2)](https://user-images.githubusercontent.com/33873660/222297455-561e3f8a-8218-4ad2-913d-42e0d51a65e2.png)
+![Screenshot (3)](https://user-images.githubusercontent.com/33873660/222297466-f22a9fc6-3510-4448-8836-34629ff65fa3.png)
+
+
 
 Program Versions:
 * Windows 11 - I normally execute in the IDLE shell for Python
 * Python v. 3.11.1
 * Pygame 2.1.3.dev8
+
+Instructions: Run the Game1.py file and use the mouse to select play. Then use the arrow keys to move the dinosaur around to eat the people. 
 
 Motivation: I knew I wanted to build a game where you collect some sort of objects for points. And I think dinosaurs are cute and thought it would be funny to have a game where you have to feed them people. 
 
