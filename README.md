@@ -13,4 +13,5 @@ Reasoning: For view, I have the main screen that is in the game loop. I also hav
 
 
 Future Work: 
-
+* For this game specifically I would like to add an element where you can do something with the food. So either you have an extra element of hiding the food and the dinosaur has to find and uncover it somehow or by providing some sort of enemy, maybe that the food runs away or fights back. 
+* This game could be generalized to any sort of collection game - you could replace the dinosaur and people/food with anything, maybe have people collecting coins. I also have the player (dinosaur), items (food/people), as well as the button, and text_objects separated out into files so each of these could be applied to other games that might use them. 
